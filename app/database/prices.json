@@ -1,4 +1,4 @@
-const price = [
+[
     {
         "name": "Bilet normalny",
         "price": 25
@@ -24,5 +24,3 @@ const price = [
         "price": 10
     }
 ]
-
-export default price;
