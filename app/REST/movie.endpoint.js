@@ -1,5 +1,5 @@
 import { application, request, response } from 'express';
-import {allMovies, bookPlace, findMovieById, getPlaces, bestOfThree} from '../services/movieService.js';
+import {allMovies, bookPlace, findMovieById, getPlaces, bestThreeMovie, lastThreeMovie} from '../services/movieService.js';
 import applicationException from '../services/applicationException.js';
 
 const moviesEndpoint = (router) => {
@@ -21,7 +21,7 @@ const moviesEndpoint = (router) => {
 
     router.get('/api/movie/top-three', (request, response) => {
         try{
-            response.status(200).send(bestOfThree());
+            response.status(200).send(bestThreeMovie());
         } catch(error) {
             applicationException.errorHandler(error, response);
         }
