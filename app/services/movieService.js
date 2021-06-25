@@ -81,7 +81,7 @@ const updateMovieById = (id, movie) => {
 }
 
 const bestThreeMovie = () => {
-    const bestMovies = this.movies
+    const bestMovies = movies
     .sort((a, b) => {
       return a.note - b.note;
     })
@@ -91,10 +91,12 @@ const bestThreeMovie = () => {
 }
 
 const lastThreeMovie = () => {
-    const lastMovies = this.movies
+    const lastMovies = movies
     .sort((a, b) => {
         return a.year - b.year;
     })
     .slice(0, 3);
+
+    return lastMovies;
 }
 export {allMovies, findMovieById, getPlaces, bookPlace, bestThreeMovie, lastThreeMovie};
