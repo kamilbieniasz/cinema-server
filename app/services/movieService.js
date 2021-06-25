@@ -77,7 +77,24 @@ const updateMovieById = (id, movie) => {
         console.log(err);
     }
 
-    movies = JSON.parse(readFileSync(new URL('../database/movies.json', import.meta.url)));
-    
+    movies = JSON.parse(readFileSync(new URL('../database/movies.json', import.meta.url)));   
 }
-export {allMovies, findMovieById, getPlaces, bookPlace};
+
+const bestThreeMovie = () => {
+    const bestMovies = this.movies
+    .sort((a, b) => {
+      return a.note - b.note;
+    })
+    .slice(0, 3);
+
+    return bestMovies;
+}
+
+const lastThreeMovie = () => {
+    const lastMovies = this.movies
+    .sort((a, b) => {
+        return a.year - b.year;
+    })
+    .slice(0, 3);
+}
+export {allMovies, findMovieById, getPlaces, bookPlace, bestThreeMovie, lastThreeMovie};
