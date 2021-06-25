@@ -19,21 +19,21 @@ const moviesEndpoint = (router) => {
         }
     });
 
-    router.get('/api/movie/top-three', (request, response) => {
-        try{
+    router.get('/api/best-three', (request, response) => {
+        try {
             response.status(200).send(bestThreeMovie());
-        } catch(error) {
+        } catch (error) {
             applicationException.errorHandler(error, response);
         }
-    })
+    });
 
-    router.get('/api/movie/last-three', (request, response) => {
-        try{
+    router.get('/api/last-three', (request, response) => {
+        try {
             response.status(200).send(lastThreeMovie());
-        } catch(error) {
+        } catch (error) {
             applicationException.errorHandler(error, response);
         }
-    })
+    });
 
     router.post('/api/movie-places/:movieId', (request, response) => {
         try {
@@ -41,7 +41,7 @@ const moviesEndpoint = (router) => {
         } catch (error) {
             applicationException.errorHandler(error, response);
         }
-    })
+    });
 
     router.post('/api/places', (request, response) => {
         try{
@@ -49,7 +49,7 @@ const moviesEndpoint = (router) => {
         } catch (error) {
             applicationException.errorHandler(error, response);
         }
-    })
+    });
 }
 
 export default moviesEndpoint;

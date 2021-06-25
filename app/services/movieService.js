@@ -1,9 +1,4 @@
 import { readFileSync, writeFileSync } from 'fs';
-import { fileURLToPath } from 'url';
-import { dirname } from 'path';
-
-const __filename = fileURLToPath(import.meta.url);
-const __driname = dirname(__filename);
 
 let movies = JSON.parse(readFileSync(new URL('../database/movies.json', import.meta.url)));
 
@@ -81,22 +76,14 @@ const updateMovieById = (id, movie) => {
 }
 
 const bestThreeMovie = () => {
-    const bestMovies = movies
-    .sort((a, b) => {
-      return a.note - b.note;
-    })
-    .slice(0, 3);
-
-    return bestMovies;
+    return movies.sort((a, b) => {
+        return a.note - b.note;
+    }).slice(0, 3);
 }
 
 const lastThreeMovie = () => {
-    const lastMovies = movies
-    .sort((a, b) => {
-        return a.year - b.year;
-    })
-    .slice(0, 3);
-
-    return lastMovies;
+    return movies.sort((a, b) => {
+        return a.release_date - b.release_date;
+    }).slice(0, 3);
 }
 export {allMovies, findMovieById, getPlaces, bookPlace, bestThreeMovie, lastThreeMovie};
