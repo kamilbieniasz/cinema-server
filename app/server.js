@@ -3,6 +3,7 @@ import bodyParser from 'body-parser';
 import routes from './REST/routes.js';
 
 const server = express();
+const port = process.env.PORT || 3000
 
 server.use(bodyParser());
 
@@ -12,6 +13,6 @@ server.get("/", (request, response) => {
     response.send("Hello World!");
 })
 
-server.listen(3000, () => {
-    console.log("Started application on port %d", 3000)
+server.listen(port, () => {
+    console.log("Started application on port %d", port)
 });
