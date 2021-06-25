@@ -3,7 +3,9 @@ import { readFileSync, writeFileSync } from 'fs';
 let movies = JSON.parse(readFileSync(new URL('../database/movies.json', import.meta.url)));
 
 const allMovies = () => {
-    return movies;
+    return movies.sort((a, b) => {
+        return a.id - b.id;
+    });
 }
 
 const findMovieById = (id) => {
@@ -77,13 +79,13 @@ const updateMovieById = (id, movie) => {
 
 const bestThreeMovie = () => {
     return movies.sort((a, b) => {
-        return a.note - b.note;
+        return b.note - a.note;
     }).slice(0, 3);
 }
 
 const lastThreeMovie = () => {
     return movies.sort((a, b) => {
-        return a.release_date - b.release_date;
+        return new Date(b.release_date) - new Date(a.release_date);
     }).slice(0, 3);
 }
 export {allMovies, findMovieById, getPlaces, bookPlace, bestThreeMovie, lastThreeMovie};
