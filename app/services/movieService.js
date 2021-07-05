@@ -15,19 +15,19 @@ const findMovieById = (id) => {
 }
 
 const getPlaces = (id, date, time) => {
+
     const movie = movies.find(movie =>
         movie.id == id
     );
 
     const day = new Date(date).getDay();
-    console.log(day);
 
     const findingDate = movie.date.find(date => 
-        date.day = day
+        date.day === day
     );
 
     const findingtime = findingDate.hours.find(hour => 
-        hour.hour = time    
+        hour.hour === time    
     );
 
     return findingtime.places;
