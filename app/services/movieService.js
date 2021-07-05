@@ -44,7 +44,7 @@ const bookPlace = (id, date, time, reservedPlaces) => {
                 if(hour.hour === time){
                     reservedPlaces.forEach(place => {
                         hour.places.forEach(hPlace => {
-                            if(hPlace.number === place){
+                            if(hPlace.number == place){
                                 hPlace.free = false;
                             }
                         })
